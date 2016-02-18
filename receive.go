@@ -1,11 +1,17 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 
 	"github.com/streadway/amqp"
 )
+
+type Message struct {
+	Name string `json:"name"`
+	Body string `json:"event"`
+}
 
 func failOnError(err error, msg string) {
 	if err != nil {
@@ -50,7 +56,11 @@ func main() {
 
 	go func() {
 		for d := range msgs {
-			log.Printf("Received a message %s", d.Body)
+			var m Message
+			if err := json.Unmarshal(d.Body, &m); err != nil {
+				log.Printf("Error parsing msg", err)
+			}
+			log.Printf("Received a message %s", m)
 		}
 	}()
 

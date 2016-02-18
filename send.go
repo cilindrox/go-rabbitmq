@@ -1,11 +1,17 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 
 	"github.com/streadway/amqp"
 )
+
+type Message struct {
+	Name string `json:"name"`
+	Body string `json:"event"`
+}
 
 func failOnError(err error, msg string) {
 	if err != nil {
@@ -34,7 +40,8 @@ func main() {
 
 	failOnError(err, "Failed to declare a queue")
 
-	body := "hello"
+	m := Message{"Alice", "Hello"}
+	b, err := json.Marshal(m)
 
 	err = ch.Publish(
 		"",     // exchange
@@ -43,8 +50,8 @@ func main() {
 		false,  // immediate
 		amqp.Publishing{
 			ContentType: "text/plain",
-			Body:        []byte(body),
+			Body:        b,
 		})
-	log.Printf(" [x] Sent %s", body)
+	log.Printf(" [x] Sent %s", b)
 	failOnError(err, "Failed to publish a message")
 }
