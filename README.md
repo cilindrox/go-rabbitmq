@@ -1,4 +1,5 @@
 # go-rabbitmq
+[![Build Status](https://travis-ci.org/cilindrox/go-rabbitmq.svg?branch=master)](https://travis-ci.org/cilindrox/go-rabbitmq) [![Code Climate](https://codeclimate.com/repos/56cb2250f5d6231ca700dc2f/badges/04d036cd3c37a0707b2a/gpa.svg)](https://codeclimate.com/repos/56cb2250f5d6231ca700dc2f/feed)
 
 This is basically a sample implementation, mostly taken from the [RabbitMQ tutorials](http://www.rabbitmq.com/getstarted.html).
 
