@@ -9,11 +9,6 @@ import (
 	"github.com/streadway/amqp"
 )
 
-type Message struct {
-	Phone string `json:"phone"`
-	Body  string `json:"event"`
-}
-
 func failOnError(err error, msg string) {
 	if err != nil {
 		log.Fatal("%s: %s", msg, err)

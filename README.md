@@ -10,7 +10,13 @@ To run this code you need [Go RabbitMQ client](https://github.com/streadway/amqp
 
     go get github.com/streadway/amqp
 
-`RABBIT_URL="amqp://guest:guest@localhost:5672"`
+
+## Settings
+
+The following env vars need to be set in order to run the project:
+
+`RABBIT_URL`: rabbitMQ server URL.
+`TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN` and `TWILIO_FROM_NUM`: Your Twilio account credentials.
 
 
 ## Code
