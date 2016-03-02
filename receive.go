@@ -10,8 +10,8 @@ import (
 )
 
 type Message struct {
-	Name string `json:"name"`
-	Body string `json:"event"`
+	Phone string `json:"phone"`
+	Body  string `json:"event"`
 }
 
 func failOnError(err error, msg string) {
@@ -62,7 +62,7 @@ func main() {
 			if err := json.Unmarshal(d.Body, &m); err != nil {
 				log.Printf("Error parsing msg", err)
 			}
-			log.Printf("Received a message %s", m)
+			SendSMS(m)
 		}
 	}()
 
