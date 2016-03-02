@@ -22,8 +22,8 @@ func failOnError(err error, msg string) {
 }
 
 func main() {
-	rabbitUrl := os.Getenv("RABBIT_URL")
-	conn, err := amqp.Dial(rabbitUrl)
+	rabbitURL := os.Getenv("RABBIT_URL")
+	conn, err := amqp.Dial(rabbitURL)
 	failOnError(err, "failed to connect to rabbitMQ")
 	defer conn.Close()
 

@@ -10,6 +10,8 @@ To run this code you need [Go RabbitMQ client](https://github.com/streadway/amqp
 
     go get github.com/streadway/amqp
 
+`RABBIT_URL="amqp://guest:guest@localhost:5672"`
+
 
 ## Code
 
